@@ -16,3 +16,19 @@ stages:
     - path: data/raw/Admission_Prediction.csv
       md5: 1f034b82d2bbc5302aa8a75b3e2f028d
       size: 20135
+  split_data:
+    cmd: python src/split_data.py --config=params.yaml
+    deps:
+    - path: data/raw/Admission_Prediction.csv
+      md5: 1f034b82d2bbc5302aa8a75b3e2f028d
+      size: 20135
+    - path: src/split_data.py
+      md5: d0b79a27bd3db7325015bcec9ce3f589
+      size: 1099
+    outs:
+    - path: data/processed/test_Admission.csv
+      md5: d1e597f5addb6ac399371593b6697138
+      size: 4082
+    - path: data/processed/train_Admission.csv
+      md5: aecadd05e14fc9f10562d90eea20e474
+      size: 16143
