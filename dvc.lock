@@ -20,24 +20,24 @@ stages:
     cmd: python src/split_data.py --config=params.yaml
     deps:
     - path: data/raw/Admission_Prediction1.csv
-      md5: 54ac61a22395b939b85f38b63abc1c8d
-      size: 18952
+      md5: 07405fa8d1f90de10f6574c9ea914327
+      size: 71565
     - path: src/split_data.py
       md5: 81c86848766b2a68f52ce2e47f120c13
       size: 1121
     outs:
     - path: data/processed/test_Admission.csv
-      md5: 476aebb6014fe472b0d2b8d1a14497b5
-      size: 3860
+      md5: 2b96296c6736d6a908ab689a8aacca32
+      size: 14138
     - path: data/processed/train_Admission.csv
-      md5: 3f6d06d8b521006a718b3ab07aa896fd
-      size: 15161
+      md5: 3074fcbf55ee75837306901788b1698f
+      size: 56385
   process_data:
     cmd: python src/EDA.py --config=params.yaml
     deps:
-    - path: data_given/Admission_Prediction.csv
-      md5: 596ffb8fe247c9f7eee70834ab7fecc8
-      size: 16087
+    - path: data/raw/Admission_Prediction.csv
+      md5: 1f034b82d2bbc5302aa8a75b3e2f028d
+      size: 20135
     - path: src/get_data.py
       md5: db7730736da9e3274083bc90eccf7000
       size: 682
@@ -46,31 +46,31 @@ stages:
       size: 666
     outs:
     - path: data/raw/Admission_Prediction1.csv
-      md5: 54ac61a22395b939b85f38b63abc1c8d
-      size: 18952
+      md5: 07405fa8d1f90de10f6574c9ea914327
+      size: 71565
   train_and_evaluate:
     cmd: python src/model_build.py --config=params.yaml
     deps:
     - path: data/processed/test_Admission.csv
-      md5: 476aebb6014fe472b0d2b8d1a14497b5
-      size: 3860
+      md5: 2b96296c6736d6a908ab689a8aacca32
+      size: 14138
     - path: data/processed/train_Admission.csv
-      md5: 3f6d06d8b521006a718b3ab07aa896fd
-      size: 15161
+      md5: 3074fcbf55ee75837306901788b1698f
+      size: 56385
     - path: src/model_build.py
       md5: fc297c32be07a3742f45445885fb24a8
       size: 3019
     params:
       params.yaml:
-        estimators.ElasticNet.params.cv: 10
+        estimators.ElasticNet.params.cv: 50
         estimators.ElasticNet.params.normalize: true
     outs:
     - path: report/params.json
-      md5: 0a0eb570b4377191eb87a84ef167c464
+      md5: 570f2c9766296d90277983ecb3d7d51d
       size: 63
     - path: report/scores.json
-      md5: 5272ee7f67f84d91a1a43d0c99b6a4a5
-      size: 100
+      md5: b6088e0527346abd3ae60cd08675f109
+      size: 102
     - path: saved_models/model.joblib
-      md5: 7e4b66b5a3e13aa17c1a4750aa17676b
+      md5: 16342b12e162eb2f9f2141d1478f527a
       size: 791

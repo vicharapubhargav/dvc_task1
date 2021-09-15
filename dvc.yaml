@@ -13,7 +13,7 @@ stages:
     deps:
     - src/get_data.py
     - src/load_data.py
-    - data_given/Admission_Prediction.csv
+    - data/raw/Admission_Prediction.csv
     outs:
     - data/raw/Admission_Prediction1.csv
 
