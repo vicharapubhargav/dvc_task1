@@ -1,6 +1,6 @@
 base:
   project: AdmissionPrediction-project
-  random_state: 42
+  random_state: 100
   target_col: Chance_of_Admit
 
 data_source:
@@ -21,10 +21,8 @@ split_data:
 estimators:
   ElasticNet:
     params:
-      # alpha: 0.88
-      # l1_ratio: 0.89
-      alpha: 0.9
-      l1_ratio: 0.4
+      cv: 10
+      normalize: True
 model_dir: saved_models
 
 reports:

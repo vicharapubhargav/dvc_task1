@@ -26,19 +26,19 @@ stages:
     - data/processed/train_Admission.csv
     - data/processed/test_Admission.csv 
 
-  # train_and_evaluate:
-  #   cmd: python src/model_build.py --config=params.yaml
-  #   deps:
-  #   - data/processed/train_Admission.csv
-  #   - data/processed/test_Admission.csv 
-  #   - src/model_build.py
-  #   params:
-  #   - estimators.ElasticNet.params.alpha
-  #   - estimators.ElasticNet.params.l1_ratio
-  #   metrics:
-  #   - report/scores.json:
-  #       cache: false
-  #   - report/params.json:
-  #       cache: false
-  #   outs:
-  #   - saved_models/model.joblib
+  train_and_evaluate:
+    cmd: python src/model_build.py --config=params.yaml
+    deps:
+    - data/processed/train_Admission.csv
+    - data/processed/test_Admission.csv 
+    - src/model_build.py
+    params:
+    - estimators.ElasticNet.params.cv
+    - estimators.ElasticNet.params.normalize
+    metrics:
+    - report/scores.json:
+        cache: false
+    - report/params.json:
+        cache: false
+    outs:
+    - saved_models/model.joblib

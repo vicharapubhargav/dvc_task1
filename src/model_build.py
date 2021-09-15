@@ -30,31 +30,39 @@ def train_and_evaluate(config_path):
     model_dir = config["model_dir"]
     
 
-    alpha = config["estimators"]["ElasticNet"]["params"]["alpha"]
-    l1_ratio = config["estimators"]["ElasticNet"]["params"]["l1_ratio"]
+    
+    cv = config["estimators"]["ElasticNet"]["params"]["cv"]
+    norm =config["estimators"]["ElasticNet"]["params"]["normalize"]
 
     target = [config["base"]["target_col"]]
 
     train = pd.read_csv(train_data_path, sep=",")
     test = pd.read_csv(test_data_path, sep=",")
 
-    train_y = train[target]
-    test_y = test[target]
+    y_train = np.array(train[target])
+    y_train.reshape(-1,)
+    y_train=y_train.ravel()
 
-    train_x = train.drop(target, axis=1)
-    test_x = test.drop(target, axis=1)
+    y_test =  np.array(test[target])
+    y_test.reshape(-1,)
+    y_test=y_test.ravel()
 
-    lr_model = ElasticNet(
-        alpha=alpha, 
-        l1_ratio=l1_ratio, 
-        random_state=random_state)
-    lr_model.fit(train_x, train_y)
-
-    predicted_score = lr_model.predict(test_x)
+    x_train = train.drop(target, axis=1)
+    x_test = test.drop(target, axis=1)
     
-    (rmse, mae, r2) = eval_metrics(test_y, predicted_score)
+   
+    elasticNetCV=ElasticNetCV(alphas=None,cv=cv,normalize=norm)
+    elasticNetCV.fit(x_train,y_train)
 
-    print("Elasticnet model (alpha=%f, l1_ratio=%f):" % (alpha, l1_ratio))
+    lr_model=ElasticNet(alpha=elasticNetCV.alpha_,l1_ratio=elasticNetCV.l1_ratio_)
+    lr_model.fit(x_train,y_train)
+
+
+    predicted_score = lr_model.predict(x_test)
+    
+    (rmse, mae, r2) = eval_metrics(y_test, predicted_score)
+
+    print("Elasticnet model (alpha=%f, l1_ratio=%f):" % (elasticNetCV.alpha_, elasticNetCV.l1_ratio_))
     print("  RMSE: %s" % rmse)
     print("  MAE: %s" % mae)
     print("  R2: %s" % r2)
@@ -73,8 +81,8 @@ def train_and_evaluate(config_path):
 
     with open(params_file, "w") as f:
         params = {
-            "alpha": alpha,
-            "l1_ratio": l1_ratio,
+            "alpha": elasticNetCV.alpha_,
+            "l1_ratio": elasticNetCV.l1_ratio_,
         }
         json.dump(params, f, indent=4)
 #####################################################

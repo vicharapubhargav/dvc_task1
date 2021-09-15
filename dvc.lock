@@ -48,3 +48,29 @@ stages:
     - path: data/raw/Admission_Prediction1.csv
       md5: 54ac61a22395b939b85f38b63abc1c8d
       size: 18952
+  train_and_evaluate:
+    cmd: python src/model_build.py --config=params.yaml
+    deps:
+    - path: data/processed/test_Admission.csv
+      md5: 476aebb6014fe472b0d2b8d1a14497b5
+      size: 3860
+    - path: data/processed/train_Admission.csv
+      md5: 3f6d06d8b521006a718b3ab07aa896fd
+      size: 15161
+    - path: src/model_build.py
+      md5: fc297c32be07a3742f45445885fb24a8
+      size: 3019
+    params:
+      params.yaml:
+        estimators.ElasticNet.params.cv: 10
+        estimators.ElasticNet.params.normalize: true
+    outs:
+    - path: report/params.json
+      md5: 0a0eb570b4377191eb87a84ef167c464
+      size: 63
+    - path: report/scores.json
+      md5: 5272ee7f67f84d91a1a43d0c99b6a4a5
+      size: 100
+    - path: saved_models/model.joblib
+      md5: 7e4b66b5a3e13aa17c1a4750aa17676b
+      size: 791
