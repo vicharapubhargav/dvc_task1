@@ -7,7 +7,7 @@ data_source:
   s3_source: data_given/Admission_Prediction.csv
 
 load_data:
-  raw_dataset_csv: data/raw/Admission_Prediction.csv.csv
+  raw_dataset_csv: data/raw/Admission_Prediction.csv
 
 split_data:
   train_path: data/processed/train_Admission.csv
