@@ -57,6 +57,9 @@ stages:
     - path: data/processed/train_Admission.csv
       md5: 3074fcbf55ee75837306901788b1698f
       size: 56385
+    - path: src/get_data.py
+      md5: db7730736da9e3274083bc90eccf7000
+      size: 682
     - path: src/model_build.py
       md5: fc297c32be07a3742f45445885fb24a8
       size: 3019

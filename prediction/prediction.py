@@ -18,7 +18,7 @@ class NotInRange(Exception):
 
 def predict(data):
     config = read_params(params_path)
-    model_dir_path = config["webapp_model_dir"]
+    model_dir_path = os.path.join(config["model_dir"], "model.joblib")
     model = joblib.load(model_dir_path)
     prediction = model.predict(scaler.transform(data))
     try:
