@@ -4,23 +4,23 @@ stages:
     cmd: python src/load_data.py --config=params.yaml
     deps:
     - path: data_given/Admission_Prediction.csv
-      md5: 596ffb8fe247c9f7eee70834ab7fecc8
-      size: 16087
+      md5: 8bc9b75372a1874aa9edb6554fa4b944
+      size: 16086
     - path: src/get_data.py
       md5: db7730736da9e3274083bc90eccf7000
       size: 682
     - path: src/load_data.py
-      md5: bf9ea6e0fcd2ef3899ba4c7d8292dec1
-      size: 666
+      md5: 96dd3a14226e6627a619dcf6c01c9783
+      size: 664
     outs:
     - path: data/raw/Admission_Prediction.csv
-      md5: 1f034b82d2bbc5302aa8a75b3e2f028d
-      size: 20135
+      md5: 0f072f1fa4641788ab7a52248125af14
+      size: 20134
   split_data:
     cmd: python src/split_data.py --config=params.yaml
     deps:
     - path: data/raw/Admission_Prediction1.csv
-      md5: 07405fa8d1f90de10f6574c9ea914327
+      md5: 68a1f901fd75ff8df034e4e7c5143711
       size: 71565
     - path: src/split_data.py
       md5: ed6a557f51c93fc3ddfd9fc5c3d36ac8
@@ -31,35 +31,35 @@ stages:
         split_data.test_size: 0.25
     outs:
     - path: data/processed/test_Admission.csv
-      md5: c0be010c0bee6048279ed7317faaeda7
+      md5: e4b7ea92188ccda0123ab70233031ba6
       size: 17680
     - path: data/processed/train_Admission.csv
-      md5: c2e1287eecd8df849b3f697b1e463067
+      md5: c30417b80ea61e2a09e940f08063dfa1
       size: 52843
   process_data:
     cmd: python src/EDA.py --config=params.yaml
     deps:
     - path: data/raw/Admission_Prediction.csv
-      md5: 1f034b82d2bbc5302aa8a75b3e2f028d
-      size: 20135
+      md5: 0f072f1fa4641788ab7a52248125af14
+      size: 20134
     - path: src/get_data.py
       md5: db7730736da9e3274083bc90eccf7000
       size: 682
     - path: src/load_data.py
-      md5: bf9ea6e0fcd2ef3899ba4c7d8292dec1
-      size: 666
+      md5: 96dd3a14226e6627a619dcf6c01c9783
+      size: 664
     outs:
     - path: data/raw/Admission_Prediction1.csv
-      md5: 07405fa8d1f90de10f6574c9ea914327
+      md5: 68a1f901fd75ff8df034e4e7c5143711
       size: 71565
   train_and_evaluate:
     cmd: python src/model_build.py --config=params.yaml
     deps:
     - path: data/processed/test_Admission.csv
-      md5: c0be010c0bee6048279ed7317faaeda7
+      md5: e4b7ea92188ccda0123ab70233031ba6
       size: 17680
     - path: data/processed/train_Admission.csv
-      md5: c2e1287eecd8df849b3f697b1e463067
+      md5: c30417b80ea61e2a09e940f08063dfa1
       size: 52843
     - path: src/get_data.py
       md5: db7730736da9e3274083bc90eccf7000

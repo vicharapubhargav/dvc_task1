@@ -30,7 +30,7 @@ def eda_process1(df,config_path):
     df['TOEFL_Score']=df['TOEFL_Score'].fillna(df['TOEFL_Score'].mean())
     df['University_Rating']=df['University_Rating'].fillna(df['University_Rating'].mean())
     
-    df.drop(columns=['Serial_No.'],inplace=True)
+    df.drop(columns=['Serial_No'],inplace=True)
     df2=eda_process2(df,config_path)
     
     return df2
