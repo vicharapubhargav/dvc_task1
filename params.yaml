@@ -24,7 +24,7 @@ estimators:
       cv: 50
       normalize: True
       
-model_dir: saved_models
+model_dir: saved_models 
 
 reports:
   params: report/params.json
