@@ -1,6 +1,5 @@
 base:
   project: AdmissionPrediction-project
-  random_state: 100
   target_col: Chance_of_Admit
 
 data_source:
@@ -11,20 +10,21 @@ load_data:
 
 process_data:
   raw_dataset_csv: data/raw/Admission_Prediction1.csv
-  
+
 split_data:
   train_path: data/processed/train_Admission.csv
   test_path: data/processed/test_Admission.csv
   test_size: 0.2
+  random_state: 100
 
 
 estimators:
   ElasticNet:
     params:
       cv: 50
-      normalize: True
-      
-model_dir: saved_models 
+      normalize: true
+
+model_dir: saved_models
 
 reports:
   params: report/params.json

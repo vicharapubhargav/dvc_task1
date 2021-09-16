@@ -23,8 +23,12 @@ stages:
       md5: 07405fa8d1f90de10f6574c9ea914327
       size: 71565
     - path: src/split_data.py
-      md5: 81c86848766b2a68f52ce2e47f120c13
-      size: 1121
+      md5: ed6a557f51c93fc3ddfd9fc5c3d36ac8
+      size: 1127
+    params:
+      params.yaml:
+        split_data.random_state: 100
+        split_data.test_size: 0.2
     outs:
     - path: data/processed/test_Admission.csv
       md5: 2b96296c6736d6a908ab689a8aacca32
@@ -61,8 +65,8 @@ stages:
       md5: db7730736da9e3274083bc90eccf7000
       size: 682
     - path: src/model_build.py
-      md5: fc297c32be07a3742f45445885fb24a8
-      size: 3019
+      md5: 2c73168ae30548a2ce937fea3cafd2c8
+      size: 2927
     params:
       params.yaml:
         estimators.ElasticNet.params.cv: 50
@@ -72,8 +76,8 @@ stages:
       md5: 570f2c9766296d90277983ecb3d7d51d
       size: 63
     - path: report/scores.json
-      md5: b6088e0527346abd3ae60cd08675f109
-      size: 102
+      md5: 0e9752ec123fe76adf9a7bbb8795ef75
+      size: 106
     - path: saved_models/model.joblib
       md5: 16342b12e162eb2f9f2141d1478f527a
       size: 791

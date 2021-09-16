@@ -26,7 +26,7 @@ def train_and_evaluate(config_path):
     config = read_params(config_path)
     test_data_path = config["split_data"]["test_path"]
     train_data_path = config["split_data"]["train_path"]
-    random_state = config["base"]["random_state"]
+    random_state = config["split_data"]["random_state"]
     model_dir = config["model_dir"]
     
 
@@ -65,27 +65,27 @@ def train_and_evaluate(config_path):
     print("Elasticnet model (alpha=%f, l1_ratio=%f):" % (elasticNetCV.alpha_, elasticNetCV.l1_ratio_))
     print("  RMSE: %s" % rmse)
     print("  MAE: %s" % mae)
-    print("  R2: %s" % r2)
+    print("  Adj R2: %s" % r2)
 
-#####################################################
+
     scores_file = config["reports"]["scores"]
     params_file = config["reports"]["params"]
 
-    with open(scores_file, "w") as f:
+    with open(scores_file, "a") as f:
         scores = {
             "rmse": rmse,
             "mae": mae,
-            "r2": r2
+            "adj_r2": r2
         }
         json.dump(scores, f, indent=4)
 
-    with open(params_file, "w") as f:
+    with open(params_file, "a") as f:
         params = {
             "alpha": elasticNetCV.alpha_,
             "l1_ratio": elasticNetCV.l1_ratio_,
         }
         json.dump(params, f, indent=4)
-#####################################################
+
 
 
     os.makedirs(model_dir, exist_ok=True)
