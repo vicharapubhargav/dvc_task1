@@ -28,14 +28,14 @@ stages:
     params:
       params.yaml:
         split_data.random_state: 100
-        split_data.test_size: 0.2
+        split_data.test_size: 0.25
     outs:
     - path: data/processed/test_Admission.csv
-      md5: 2b96296c6736d6a908ab689a8aacca32
-      size: 14138
+      md5: c0be010c0bee6048279ed7317faaeda7
+      size: 17680
     - path: data/processed/train_Admission.csv
-      md5: 3074fcbf55ee75837306901788b1698f
-      size: 56385
+      md5: c2e1287eecd8df849b3f697b1e463067
+      size: 52843
   process_data:
     cmd: python src/EDA.py --config=params.yaml
     deps:
@@ -56,11 +56,11 @@ stages:
     cmd: python src/model_build.py --config=params.yaml
     deps:
     - path: data/processed/test_Admission.csv
-      md5: 2b96296c6736d6a908ab689a8aacca32
-      size: 14138
+      md5: c0be010c0bee6048279ed7317faaeda7
+      size: 17680
     - path: data/processed/train_Admission.csv
-      md5: 3074fcbf55ee75837306901788b1698f
-      size: 56385
+      md5: c2e1287eecd8df849b3f697b1e463067
+      size: 52843
     - path: src/get_data.py
       md5: db7730736da9e3274083bc90eccf7000
       size: 682
@@ -73,11 +73,11 @@ stages:
         estimators.ElasticNet.params.normalize: true
     outs:
     - path: report/params.json
-      md5: 570f2c9766296d90277983ecb3d7d51d
-      size: 63
+      md5: 4b2d82df25987871947735c6ff3e8712
+      size: 61
     - path: report/scores.json
-      md5: 0e9752ec123fe76adf9a7bbb8795ef75
+      md5: 72d931b1f248f6ca4bedde83a36aef09
       size: 106
     - path: saved_models/model.joblib
-      md5: 16342b12e162eb2f9f2141d1478f527a
+      md5: b54cc0140cc65b7a21828ea2e6666605
       size: 791

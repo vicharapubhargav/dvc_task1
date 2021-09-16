@@ -14,7 +14,7 @@ process_data:
 split_data:
   train_path: data/processed/train_Admission.csv
   test_path: data/processed/test_Admission.csv
-  test_size: 0.2
+  test_size: 0.25
   random_state: 100
 
 
