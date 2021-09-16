@@ -20,8 +20,7 @@ def predict(data):
     config = read_params(params_path)
     model_dir_path = config["webapp_model_dir"]
     model = joblib.load(model_dir_path)
-    prediction = model.predict(scaler.transform(data)).tolist()[0]
-    print(prediction)
+    prediction = model.predict(scaler.transform(data))
     try:
         if 0 <= prediction <= 10:
             return prediction
