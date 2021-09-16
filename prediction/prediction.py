@@ -22,8 +22,8 @@ def predict(data):
     model = joblib.load(model_dir_path)
     prediction = model.predict(scaler.transform(data))
     try:
-        if 0 <= prediction <= 10:
-            return prediction
+        if 0 <= prediction[0] <= 10:
+            return prediction[0]
         else:
             raise NotInRange
     except NotInRange:
@@ -52,7 +52,7 @@ def validate_input(dict_request):
 
 def form_response(dict_request):
    if validate_input(dict_request):
-        print("HI")
+        print(dict_request)
         data = dict_request.values()
         data = [list(map(float, data))]
         response = predict(data)
@@ -62,7 +62,7 @@ def form_response(dict_request):
 def api_response(dict_request):
     try:
         if validate_input(dict_request):
-            data = np.array([list(dict_request.values())])
+            data = [list(dict_request.values())]
             response = predict(data)
             response = {"response": response}
             return response

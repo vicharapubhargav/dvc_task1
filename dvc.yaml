@@ -32,6 +32,8 @@ stages:
     - data/processed/train_Admission.csv
     - data/processed/test_Admission.csv 
     - src/model_build.py
+    - src/get_data.py
+    
     params:
     - estimators.ElasticNet.params.cv
     - estimators.ElasticNet.params.normalize
