@@ -27,15 +27,15 @@ stages:
       size: 1259
     params:
       params.yaml:
-        split_data.random_state: 100
-        split_data.test_size: 0.25
+        split_data.random_state: 90
+        split_data.test_size: 0.2
     outs:
     - path: data/processed/test_Admission.csv
-      md5: e4b7ea92188ccda0123ab70233031ba6
-      size: 17680
+      md5: ba65ae113572ed6067a60535507f9ed9
+      size: 14158
     - path: data/processed/train_Admission.csv
-      md5: c30417b80ea61e2a09e940f08063dfa1
-      size: 52843
+      md5: 6f9e0ece8a50943f02bf20df6856c6ed
+      size: 56365
   process_data:
     cmd: python src/EDA.py --config=params.yaml
     deps:

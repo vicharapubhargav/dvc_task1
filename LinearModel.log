@@ -26,3 +26,31 @@
 2021-09-17 23:50:35,553:INFO:get_data.py:Requested Params.yaml file is returned
 2021-09-17 23:50:36,157:INFO:model_build.py:Linear Regression Model has been build using ElasticNet
 2021-09-17 23:50:36,161:INFO:model_build.py:Build Model has saved to saved_models directory as model.joblib
+2021-09-18 00:06:56,887:INFO:get_data.py:Requested Params.yaml file is returned
+2021-09-18 00:06:56,908:INFO:split_data.py:Data set has been splitted into train and test data
+2021-09-18 00:07:00,335:INFO:get_data.py:Requested Params.yaml file is returned
+2021-09-18 00:07:00,987:INFO:model_build.py:Linear Regression Model has been build using ElasticNet
+2021-09-18 00:07:00,998:INFO:model_build.py:Build Model has saved to saved_models directory as model.joblib
+2021-09-18 00:07:27,194:INFO:get_data.py:Requested Params.yaml file is returned
+2021-09-18 00:07:27,219:INFO:split_data.py:Data set has been splitted into train and test data
+2021-09-18 00:07:31,070:INFO:get_data.py:Requested Params.yaml file is returned
+2021-09-18 00:07:31,791:INFO:model_build.py:Linear Regression Model has been build using ElasticNet
+2021-09-18 00:07:31,796:INFO:model_build.py:Build Model has saved to saved_models directory as model.joblib
+2021-09-18 00:07:47,772:INFO:get_data.py:Requested Params.yaml file is returned
+2021-09-18 00:07:47,788:INFO:split_data.py:Data set has been splitted into train and test data
+2021-09-18 00:07:51,792:INFO:get_data.py:Requested Params.yaml file is returned
+2021-09-18 00:07:52,384:INFO:model_build.py:Linear Regression Model has been build using ElasticNet
+2021-09-18 00:07:52,389:INFO:model_build.py:Build Model has saved to saved_models directory as model.joblib
+2021-09-18 00:08:15,899:INFO:get_data.py:Requested Params.yaml file is returned
+2021-09-18 00:08:15,924:INFO:split_data.py:Data set has been splitted into train and test data
+2021-09-18 00:08:19,880:INFO:get_data.py:Requested Params.yaml file is returned
+2021-09-18 00:08:20,911:INFO:model_build.py:Linear Regression Model has been build using ElasticNet
+2021-09-18 00:08:20,916:INFO:model_build.py:Build Model has saved to saved_models directory as model.joblib
+2021-09-18 00:08:44,274:INFO:get_data.py:Requested Params.yaml file is returned
+2021-09-18 00:08:44,304:INFO:split_data.py:Data set has been splitted into train and test data
+2021-09-18 00:08:47,648:INFO:get_data.py:Requested Params.yaml file is returned
+2021-09-18 00:08:48,278:INFO:model_build.py:Linear Regression Model has been build using ElasticNet
+2021-09-18 00:08:48,282:INFO:model_build.py:Build Model has saved to saved_models directory as model.joblib
+2021-09-18 00:09:04,224:INFO:get_data.py:Requested Params.yaml file is returned
+2021-09-18 00:09:04,816:INFO:model_build.py:Linear Regression Model has been build using ElasticNet
+2021-09-18 00:09:04,821:INFO:model_build.py:Build Model has saved to saved_models directory as model.joblib
