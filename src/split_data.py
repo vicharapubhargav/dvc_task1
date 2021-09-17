@@ -4,7 +4,7 @@ import os
 import argparse
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from logger import getLog
+from log_class import getLog
 
 log = getLog("split_data.py")
 

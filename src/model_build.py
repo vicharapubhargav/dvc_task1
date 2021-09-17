@@ -12,7 +12,7 @@ import argparse
 import joblib
 import json
 from sklearn.linear_model import ElasticNet,ElasticNetCV
-from logger import getLog
+from log_class import getLog
 
 log = getLog("model_build.py")
 

@@ -6,7 +6,7 @@ from get_data import read_params
 import argparse
 from sklearn.preprocessing import StandardScaler
 from pickle import dump
-from logger import getLog
+from log_class import getLog
 
 
 log = getLog("EDA.py")
@@ -37,7 +37,7 @@ def eda_process1(df,config_path):
     df['University_Rating']=df['University_Rating'].fillna(df['University_Rating'].mean())
     
     df.drop(columns=['Serial_No'],inplace=True)
-    logger.info("Missing column values in data set are handled")
+    log.info("Missing column values in data set are handled")
 
     df2=eda_process2(df,config_path)
     

@@ -5,7 +5,7 @@ def getLog(nm):
     # Creating custom logger
     logger = logging.getLogger(nm)
     # reading contents from properties file
-    f = open("properties.txt", 'r')
+    f = open("src/properties.txt", 'r')
     if f.mode == "r":
         loglevel = f.read()
     if loglevel == "ERROR":
@@ -15,7 +15,7 @@ def getLog(nm):
     # Creating Formatters
     formatter = logging.Formatter('%(asctime)s:%(levelname)s:%(name)s:%(message)s')
     # Creating Handlers
-    file_handler = logging.FileHandler('test.log')
+    file_handler = logging.FileHandler('LinearModel.log')
     # Adding Formatters to Handlers
     file_handler.setFormatter(formatter)
     # Adding Handlers to logger

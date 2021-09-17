@@ -3,8 +3,8 @@ import os
 import json
 import joblib
 import numpy as np
-from  src.get_data import read_params
 from pickle import load
+
 
 params_path = "params.yaml"
 schema_path = os.path.join("prediction", "schema_in.json")
@@ -15,6 +15,10 @@ class NotInRange(Exception):
         self.message = col+" "+message
         super().__init__(self.message)
 
+def read_params(config_path=params_path):
+    with open(config_path) as yaml_file:
+        config = yaml.safe_load(yaml_file)
+    return config
 
 def predict(data):
     config = read_params(params_path)
@@ -37,7 +41,7 @@ def get_schema(schema_path=schema_path):
 
 def validate_input(dict_request):
 
-    def _validate_values(col, val):
+    def validate_values(col, val):
         schema = get_schema()
 
         if not (schema[col]["min"] <= float(val) <= schema[col]["max"]) :
@@ -45,7 +49,7 @@ def validate_input(dict_request):
             
 
     for col, val in dict_request.items():
-        _validate_values(col, val)
+        validate_values(col, val)
     
     return True
 

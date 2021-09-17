@@ -1,0 +1,28 @@
+2021-09-17 23:10:09,726:INFO:get_data.py:Requested Params.yaml file is returned
+2021-09-17 23:10:09,739:INFO:get_data.py:Requested DataSet file is returned
+2021-09-17 23:10:39,656:INFO:get_data.py:Requested Params.yaml file is returned
+2021-09-17 23:10:39,664:INFO:get_data.py:Requested Params.yaml file is returned
+2021-09-17 23:10:39,671:INFO:get_data.py:Requested DataSet file is returned
+2021-09-17 23:10:39,724:INFO:load_data.py:Given Dataset File file is saved in data/raw folders without spaces in headers
+2021-09-17 23:10:55,875:INFO:get_data.py:Requested Params.yaml file is returned
+2021-09-17 23:10:55,905:INFO:EDA.py:Missing column values in data set are handled
+2021-09-17 23:10:55,914:INFO:get_data.py:Requested Params.yaml file is returned
+2021-09-17 23:10:55,921:INFO:EDA.py:Independent features of the dataset has been normalized
+2021-09-17 23:10:55,924:INFO:EDA.py:Scaler objected has been dumped to scaler.pkl pickle file
+2021-09-17 23:11:07,648:INFO:get_data.py:Requested Params.yaml file is returned
+2021-09-17 23:11:07,697:INFO:split_data.py:Data set has been splitted into train and test data
+2021-09-17 23:11:22,752:INFO:get_data.py:Requested Params.yaml file is returned
+2021-09-17 23:11:23,491:INFO:model_build.py:Linear Regression Model has been build using ElasticNet
+2021-09-17 23:11:23,511:INFO:model_build.py:Build Model has saved to saved_models directory as model.joblib
+2021-09-17 23:50:28,354:INFO:get_data.py:Requested Params.yaml file is returned
+2021-09-17 23:50:28,359:INFO:get_data.py:Requested Params.yaml file is returned
+2021-09-17 23:50:28,363:INFO:get_data.py:Requested DataSet file is returned
+2021-09-17 23:50:28,372:INFO:load_data.py:Given Dataset File file is saved in data/raw folders without spaces in headers
+2021-09-17 23:50:31,636:INFO:get_data.py:Requested Params.yaml file is returned
+2021-09-17 23:50:31,646:INFO:EDA.py:Missing column values in data set are handled
+2021-09-17 23:50:31,653:INFO:get_data.py:Requested Params.yaml file is returned
+2021-09-17 23:50:31,660:INFO:EDA.py:Independent features of the dataset has been normalized
+2021-09-17 23:50:31,661:INFO:EDA.py:Scaler objected has been dumped to scaler.pkl pickle file
+2021-09-17 23:50:35,553:INFO:get_data.py:Requested Params.yaml file is returned
+2021-09-17 23:50:36,157:INFO:model_build.py:Linear Regression Model has been build using ElasticNet
+2021-09-17 23:50:36,161:INFO:model_build.py:Build Model has saved to saved_models directory as model.joblib

@@ -1,13 +1,14 @@
 ## read params
 ## process
 ## return dataframe
-import os
+import os,sys
 import yaml
 import pandas as pd
 import argparse
-from logger import getLog
+from log_class import getLog
 
-logger=getLog('get_data.py')
+logger=getLog("get_data.py")
+
 def read_params(config_path):
     with open(config_path) as yaml_file:
         config = yaml.safe_load(yaml_file)
