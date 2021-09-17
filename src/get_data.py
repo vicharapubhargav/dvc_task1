@@ -5,10 +5,13 @@ import os
 import yaml
 import pandas as pd
 import argparse
+from logger import getLog
 
+logger=getLog('get_data.py')
 def read_params(config_path):
     with open(config_path) as yaml_file:
         config = yaml.safe_load(yaml_file)
+    logger.info("Requested Params.yaml file is returned")    
     return config
 
 def get_data(config_path):
@@ -16,6 +19,7 @@ def get_data(config_path):
     # print(config)
     data_path = config["data_source"]["s3_source"]
     df = pd.read_csv(data_path, sep=",", encoding='utf-8')
+    logger.info("Requested DataSet file is returned")
     return df
 
 

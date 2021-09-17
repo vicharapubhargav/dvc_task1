@@ -3,6 +3,9 @@
 import os
 from get_data import read_params, get_data
 import argparse
+from logger import getLog
+
+log = getLog("load_data.py")
 
 def load_and_save(config_path):
     config = read_params(config_path)
@@ -11,6 +14,7 @@ def load_and_save(config_path):
     raw_data_path = config["load_data"]["raw_dataset_csv"]
     df.columns=new_cols
     df.to_csv(raw_data_path,index=False)
+    log.info("Given Dataset File file is saved in data/raw folders without spaces in headers")
 
 
 if __name__=="__main__":

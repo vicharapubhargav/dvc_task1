@@ -4,6 +4,9 @@ import os
 import argparse
 import pandas as pd
 from sklearn.model_selection import train_test_split
+from logger import getLog
+
+log = getLog("split_data.py")
 
 
 from get_data import read_params
@@ -28,6 +31,7 @@ def split_and_saved_data(config_path):
 
     train.to_csv(train_data_path, sep=",", index=False, encoding="utf-8")
     test.to_csv(test_data_path, sep=",", index=False, encoding="utf-8")
+    log.info("Data set has been splitted into train and test data")
 
 if __name__=="__main__":
     args = argparse.ArgumentParser()

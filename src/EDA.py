@@ -6,6 +6,10 @@ from get_data import read_params
 import argparse
 from sklearn.preprocessing import StandardScaler
 from pickle import dump
+from logger import getLog
+
+
+log = getLog("EDA.py")
 
 
 
@@ -16,8 +20,10 @@ def eda_process2(df,config_path):
     X = df.drop(target,axis=1)
     scaler=StandardScaler()
     arr=scaler.fit_transform(X)
+    log.info("Independent features of the dataset has been normalized")
     y=df[[target]]
     dump(scaler, open('scaler.pkl', 'wb'))
+    log.info("Scaler objected has been dumped to scaler.pkl pickle file")
     df2=pd.DataFrame(arr)
     df2[target]=y
     df2.columns=df.columns
@@ -31,6 +37,8 @@ def eda_process1(df,config_path):
     df['University_Rating']=df['University_Rating'].fillna(df['University_Rating'].mean())
     
     df.drop(columns=['Serial_No'],inplace=True)
+    logger.info("Missing column values in data set are handled")
+
     df2=eda_process2(df,config_path)
     
     return df2

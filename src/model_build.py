@@ -7,13 +7,14 @@ import sys
 import pandas as pd
 import numpy as np
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import ElasticNet
 from get_data import read_params
 import argparse
 import joblib
 import json
 from sklearn.linear_model import ElasticNet,ElasticNetCV
+from logger import getLog
+
+log = getLog("model_build.py")
 
 
 def eval_metrics(actual, pred):
@@ -26,7 +27,6 @@ def train_and_evaluate(config_path):
     config = read_params(config_path)
     test_data_path = config["split_data"]["test_path"]
     train_data_path = config["split_data"]["train_path"]
-    random_state = config["split_data"]["random_state"]
     model_dir = config["model_dir"]
     
 
@@ -57,6 +57,7 @@ def train_and_evaluate(config_path):
     lr_model=ElasticNet(alpha=elasticNetCV.alpha_,l1_ratio=elasticNetCV.l1_ratio_)
     lr_model.fit(x_train,y_train)
 
+    log.info("Linear Regression Model has been build using ElasticNet")
 
     predicted_score = lr_model.predict(x_test)
     
@@ -92,7 +93,7 @@ def train_and_evaluate(config_path):
     model_path = os.path.join(model_dir, "model.joblib")
 
     joblib.dump(lr_model, model_path)
-
+    log.info("Build Model has saved to saved_models directory as model.joblib")
 
 
 if __name__=="__main__":
