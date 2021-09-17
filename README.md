@@ -16,6 +16,9 @@
 
 # Commit the changes to git
  cmd: git add .
+ 
  cmd: git commit -m "First Commit" 
+ 
  cmd: git remote add origin https://github.com/vicharapubhargav/dvc_task1
+ 
  cmd: git push origin main
